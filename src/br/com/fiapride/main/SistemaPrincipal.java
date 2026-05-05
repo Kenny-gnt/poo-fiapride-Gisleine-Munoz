@@ -8,7 +8,7 @@ public class SistemaPrincipal {
 
         Dispositivo notebook = new Dispositivo("Notebook", "Dell", 8, 15.6);
 
-        notebook.adicionarMemoria(8);
+        notebook.fazerUpgradeMemoria(8);
 
         System.out.println("Memória atual: " + notebook.getMemoria() + "GB\n");
 
