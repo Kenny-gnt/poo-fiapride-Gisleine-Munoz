@@ -61,7 +61,8 @@ Criar um método como adicionarSaldo(valor) é importante porque ele garante mai
 **Pense bem:** Qual a diferença entre dar a alguém uma cópia de um documento seu, e entregar o documento original para a pessoa rasurar?
 
 **Sua Resposta:**
-[Escreva sua reflexão aqui]
+
+Encapsulamento protege os dados da classe ao manter os atributos como private, evitando que sejam acessados diretamente. Os métodos get podem ser públicos porque apenas permitem visualizar os valores, sem dar a possibilidade de alteração. Dessa forma, a informação continua segura, já que ninguém consegue modificá-la sem passar por regras da própria classe. Já deixar os atributos públicos é perigoso, pois qualquer parte do código pode alterar os valores livremente, sem controle. É como entregar uma cópia de um documento para alguém ver, em vez do original que pode ser modificado.
 
 ---
 
