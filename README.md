@@ -49,7 +49,8 @@ A classe funciona como um molde, permitindo criar vários objetos com a mesma es
 **Pergunta:** Se nós podemos simplesmente fazer `passageiro.saldo = passageiro.saldo + 100` diretamente no código principal, por que dá tanto trabalho criar um método específico chamado `adicionarSaldo(valor)` para fazer isso? Quais seriam os riscos para a nossa startup de mobilidade se deixássemos qualquer programador alterar o saldo diretamente?
 
 **Sua Resposta:**
-[Escreva sua reflexão aqui]
+
+Criar um método como adicionarSaldo(valor) é importante porque ele garante mais controle sobre como o saldo é alterado. Mesmo que seja possível mudar o valor diretamente no código, isso pode gerar erros ou até permitir valores inválidos, como números negativos. Ao usar um método, podemos validar o valor antes de aplicar a alteração, garantindo que o sistema funcione corretamente. Além disso, centraliza a lógica em um único lugar, facilitando manutenção e mudanças futuras. Se qualquer programador pudesse alterar o saldo diretamente, haveria risco de inconsistências nos dados e até prejuízos para a empresa. Em uma startup, isso poderia afetar a confiança dos usuários e causar problemas sérios no sistema.
 
 ---
 
