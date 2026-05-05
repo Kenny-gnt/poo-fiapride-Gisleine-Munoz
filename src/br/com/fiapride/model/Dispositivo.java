@@ -2,22 +2,59 @@ package br.com.fiapride.model;
 
 public class Dispositivo {
 
-    public String tipo;
-    public String nome;
-    public int memoria;
-    public double tamanhoTela;
+    private String tipo;
+    private String nome;
+    private int memoria;
+    private double tamanhoTela;
 
-    public void adicionarMemoria(int valor) {
-        memoria = memoria + valor;
+    public Dispositivo(String tipo, String nome, int memoria, double tamanhoTela) {
+        setTipo(tipo);
+        setNome(nome);
+        setMemoria(memoria);
+        setTamanhoTela(tamanhoTela);
     }
 
-    public int obterMemoria() {
+    public void adicionarMemoria(int valor) {
+        if (valor > 0) {
+            memoria += valor;
+        }
+    }
+
+    public int getMemoria() {
         return memoria;
     }
 
-    public void alterarNome(String novoNome) {
-        if (novoNome != null && !novoNome.isEmpty()) {
-            nome = novoNome;
+    private void setMemoria(int memoria) {
+        if (memoria > 0) {
+            this.memoria = memoria;
+        }
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    private void setNome(String nome) {
+        if (nome != null && !nome.isEmpty()) {
+            this.nome = nome;
+        }
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    private void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public double getTamanhoTela() {
+        return tamanhoTela;
+    }
+
+    private void setTamanhoTela(double tamanhoTela) {
+        if (tamanhoTela > 0) {
+            this.tamanhoTela = tamanhoTela;
         }
     }
 

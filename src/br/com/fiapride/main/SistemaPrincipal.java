@@ -6,25 +6,15 @@ public class SistemaPrincipal {
 
     public static void main(String[] args) {
 
-        Dispositivo notebook = new Dispositivo();
-        notebook.tipo = "Notebook";
-        notebook.nome = "Dell";
-        notebook.memoria = 8;
-        notebook.tamanhoTela = 15.6;
+        Dispositivo notebook = new Dispositivo("Notebook", "Dell", 8, 15.6);
 
         notebook.adicionarMemoria(8);
 
-        int memoriaAtual = notebook.obterMemoria();
-
-        System.out.println("Memória atual: " + memoriaAtual + "GB\n");
+        System.out.println("Memória atual: " + notebook.getMemoria() + "GB\n");
 
         notebook.exibirInfo();
 
-        Dispositivo celular = new Dispositivo();
-        celular.tipo = "Celular";
-        celular.nome = "Samsung";
-        celular.memoria = 128;
-        celular.tamanhoTela = 6.5;
+        Dispositivo celular = new Dispositivo("Celular", "Samsung", 128, 6.5);
 
         celular.exibirInfo();
     }
