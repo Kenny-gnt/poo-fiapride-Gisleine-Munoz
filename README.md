@@ -79,7 +79,9 @@ Pensando no mundo real e no Clean Code: Por que é um erro gravíssimo clicar em
 *Dica: Pense sobre o que pode ou não mudar fisicamente em um carro, e a diferença entre "alterar um dado no banco" e "executar um processo real no Detran".*
 
 **Sua Resposta:**
-[Escreva sua reflexão aqui]
+
+Gerar getters e setters para tudo sem pensar é errado porque você perde o controle sobre o que pode ou não ser alterado no sistema. Nem todos os dados devem ser modificados livremente, como o modelo de um carro, que não muda na vida real. Já a placa pode mudar, mas isso exige um processo com regras, não apenas trocar um valor direto. Ao deixar o `setPlaca()` privado e criar um método como `atualizarPlaca()`, garantimos que essa mudança siga uma lógica correta. Assim, o sistema fica mais seguro e evita alterações inválidas ou inconsistentes.
+
 
 ---
 
