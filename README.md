@@ -92,7 +92,8 @@ Gerar getters e setters para tudo sem pensar é errado porque você perde o cont
 *Pense nas regras de negócio: O que acontece na hora que a Viagem acaba e o sistema precisa descontar o saldo? Se a Viagem tiver apenas a String "Ana Silva", ela consegue mexer no dinheiro dela?*
 
 **Sua Resposta:**
-[Escreva sua reflexão aqui]
+
+Não é melhor usar só a String do nome, porque ela guarda apenas o texto e não permite acessar outros dados ou ações do passageiro. Ao usar o objeto Passageiro, a viagem consegue acessar o saldo e chamar métodos, como descontar o valor da corrida. Se fosse apenas "Ana Silva", o sistema não teria como alterar o saldo dela. Por isso, usar o objeto completo garante que as regras de negócio funcionem corretamente.
 
 ---
 
