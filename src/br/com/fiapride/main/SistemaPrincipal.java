@@ -1,6 +1,7 @@
 package br.com.fiapride.main;
 
 import br.com.fiapride.model.Dispositivo;
+import br.com.fiapride.model.UsoDispositivo;
 
 public class SistemaPrincipal {
 
@@ -8,14 +9,10 @@ public class SistemaPrincipal {
 
         Dispositivo notebook = new Dispositivo("Notebook", "Dell", 8, 15.6);
 
-        notebook.fazerUpgradeMemoria(8);
+        notebook.adicionarMemoria(8);
 
-        System.out.println("Memória atual: " + notebook.getMemoria() + "GB\n");
+        UsoDispositivo uso = new UsoDispositivo("Estudo Java", 120, notebook);
 
-        notebook.exibirInfo();
-
-        Dispositivo celular = new Dispositivo("Celular", "Samsung", 128, 6.5);
-
-        celular.exibirInfo();
+        uso.exibirResumo();
     }
 }
