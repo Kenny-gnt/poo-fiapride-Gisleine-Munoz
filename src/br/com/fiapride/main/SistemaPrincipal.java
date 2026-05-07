@@ -1,6 +1,7 @@
 package br.com.fiapride.main;
 
 import br.com.fiapride.model.Celular;
+import br.com.fiapride.model.Dispositivo;
 import br.com.fiapride.model.Notebook;
 import br.com.fiapride.model.UsoDispositivo;
 
@@ -8,7 +9,8 @@ public class SistemaPrincipal {
 
     public static void main(String[] args) {
 
-        System.out.println("===== SISTEMA DE DISPOSITIVOS =====");
+        System.out.println(
+                "===== SISTEMA DE DISPOSITIVOS =====");
 
         Notebook notebook = new Notebook(
                 "Notebook",
@@ -26,17 +28,38 @@ public class SistemaPrincipal {
                 true,
                 4);
 
-        UsoDispositivo usoNotebook = new UsoDispositivo(
-                "Estudo Java",
-                120,
-                notebook);
+        UsoDispositivo usoNotebook =
+                new UsoDispositivo(
+                        "Estudo Java",
+                        120,
+                        notebook);
 
-        UsoDispositivo usoCelular = new UsoDispositivo(
-                "Redes Sociais",
-                90,
-                celular);
+        UsoDispositivo usoCelular =
+                new UsoDispositivo(
+                        "Redes Sociais",
+                        90,
+                        celular);
 
         usoNotebook.exibirResumo();
         usoCelular.exibirResumo();
+
+        System.out.println(
+                "\n===== TESTE POLIMÓRFICO =====");
+
+        Dispositivo[] dispositivos = {
+                notebook,
+                celular
+        };
+
+        for (Dispositivo d : dispositivos) {
+
+            System.out.println(d.getNome());
+
+            System.out.println(
+                    d.calcularDesempenho());
+
+            System.out.println(
+                    "-----------------------");
+        }
     }
 }

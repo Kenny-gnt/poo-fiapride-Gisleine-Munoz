@@ -22,15 +22,27 @@ public class UsoDispositivo {
         System.out.println("\n===== RESUMO DE USO =====");
 
         System.out.println("Atividade: " + atividade);
-        System.out.println("Tempo de uso: " + tempoUso + " minutos");
 
-        System.out.println("\n--- Dispositivo Utilizado ---");
-        System.out.println("Nome: " + dispositivoUtilizado.getNome());
-        System.out.println("Tipo: " + dispositivoUtilizado.getTipo());
+        System.out.println("Tempo de uso: "
+                + tempoUso + " minutos");
+
+        System.out.println(
+                "\n--- Dispositivo Utilizado ---");
+
+        System.out.println("Nome: "
+                + dispositivoUtilizado.getNome());
+
+        System.out.println("Tipo: "
+                + dispositivoUtilizado.getTipo());
+
         System.out.println("Memória: "
-                + dispositivoUtilizado.getMemoria() + " GB");
+                + dispositivoUtilizado.getMemoria()
+                + " GB");
 
-        System.out.println("==============================");
+        System.out.println(
+                dispositivoUtilizado.calcularDesempenho());
+
+        System.out.println("-----------------------------");
     }
 
     public Dispositivo getDispositivoUtilizado() {

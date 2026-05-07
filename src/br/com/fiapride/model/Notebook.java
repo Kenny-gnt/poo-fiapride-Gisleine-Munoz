@@ -26,4 +26,13 @@ public class Notebook extends Dispositivo {
     public String getProcessador() {
         return processador;
     }
+
+    @Override
+    public String calcularDesempenho() {
+
+        double desempenho = getMemoria() * 2;
+
+        return "Desempenho Notebook: "
+                + desempenho;
+    }
 }

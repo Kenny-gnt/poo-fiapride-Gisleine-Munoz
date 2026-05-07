@@ -26,4 +26,13 @@ public class Celular extends Dispositivo {
     public int getQuantidadeCameras() {
         return quantidadeCameras;
     }
+
+    @Override
+    public String calcularDesempenho() {
+
+        double desempenho = getMemoria() * 1.5;
+
+        return "Desempenho Celular: "
+                + desempenho;
+    }
 }
