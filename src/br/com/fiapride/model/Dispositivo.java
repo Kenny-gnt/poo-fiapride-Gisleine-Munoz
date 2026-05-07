@@ -1,6 +1,6 @@
 package br.com.fiapride.model;
 
-public class Dispositivo {
+public abstract class Dispositivo {
 
     private String tipo;
     private String nome;
@@ -26,10 +26,7 @@ public class Dispositivo {
         }
     }
 
-    public String calcularDesempenho() {
-
-        return "Desempenho genérico do dispositivo.";
-    }
+    public abstract String calcularDesempenho();
 
     public int getMemoria() {
         return memoria;
