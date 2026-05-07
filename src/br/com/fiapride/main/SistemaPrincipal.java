@@ -1,18 +1,42 @@
 package br.com.fiapride.main;
 
-import br.com.fiapride.model.Dispositivo;
+import br.com.fiapride.model.Celular;
+import br.com.fiapride.model.Notebook;
 import br.com.fiapride.model.UsoDispositivo;
 
 public class SistemaPrincipal {
 
     public static void main(String[] args) {
 
-        Dispositivo notebook = new Dispositivo("Notebook", "Dell", 8, 15.6);
+        System.out.println("===== SISTEMA DE DISPOSITIVOS =====");
 
-        notebook.adicionarMemoria(8);
+        Notebook notebook = new Notebook(
+                "Notebook",
+                "Dell G15",
+                16,
+                15.6,
+                true,
+                "Intel i7");
 
-        UsoDispositivo uso = new UsoDispositivo("Estudo Java", 120, notebook);
+        Celular celular = new Celular(
+                "Celular",
+                "Samsung S24",
+                256,
+                6.5,
+                true,
+                4);
 
-        uso.exibirResumo();
+        UsoDispositivo usoNotebook = new UsoDispositivo(
+                "Estudo Java",
+                120,
+                notebook);
+
+        UsoDispositivo usoCelular = new UsoDispositivo(
+                "Redes Sociais",
+                90,
+                celular);
+
+        usoNotebook.exibirResumo();
+        usoCelular.exibirResumo();
     }
 }
