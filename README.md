@@ -40,9 +40,7 @@ Este projeto é o resultado do aprendizado nas aulas 1-9 de Programação Orient
 
 **Sua Resposta:**
 
-Criar uma classe como Passageiro é importante porque ajuda a manter o sistema organizado. No começo, até daria para usar variáveis soltas como nome e saldo, mas isso só funciona com poucos usuários. Conforme o sistema cresce, como no caso de ter muitos usuários, o código ficaria confuso e difícil de manter.
-A classe funciona como um molde, permitindo criar vários objetos com a mesma estrutura. Assim, cada passageiro é representado de forma padronizada.Isso evita repetição de código e facilita muito a manutenção. Em um sistema com muitos usuários, usar classes torna tudo mais simples e organizado.
-
+Criar uma classe como Passageiro é importante porque ajuda a manter o sistema organizado e escalável. No começo, usar variáveis soltas parece mais simples, mas isso só funciona em sistemas muito pequenos. Conforme o FiapRide cresce e passa a ter milhares ou até milhões de usuários, seria praticamente impossível controlar tantas variáveis espalhadas pelo código. A classe funciona como um molde, permitindo criar vários objetos com a mesma estrutura e comportamento. Durante o desenvolvimento do meu projeto percebi que isso também facilita manutenção, reutilização e organização do sistema, porque cada objeto representa uma entidade real de forma padronizada.
 
 ### Aula 2 - Métodos
 
@@ -50,7 +48,7 @@ A classe funciona como um molde, permitindo criar vários objetos com a mesma es
 
 **Sua Resposta:**
 
-Criar um método como adicionarSaldo(valor) é importante porque ele garante mais controle sobre como o saldo é alterado. Mesmo que seja possível mudar o valor diretamente no código, isso pode gerar erros ou até permitir valores inválidos, como números negativos. Ao usar um método, podemos validar o valor antes de aplicar a alteração, garantindo que o sistema funcione corretamente. Além disso, centraliza a lógica em um único lugar, facilitando manutenção e mudanças futuras. Se qualquer programador pudesse alterar o saldo diretamente, haveria risco de inconsistências nos dados e até prejuízos para a empresa. Em uma startup, isso poderia afetar a confiança dos usuários e causar problemas sérios no sistema.
+Criar um método como adicionarSaldo(valor) é importante porque ele garante controle sobre como o saldo será alterado. Mesmo sendo mais rápido modificar o valor diretamente, isso deixaria o sistema vulnerável a erros e alterações inválidas. Durante as aulas percebi que métodos existem para proteger as regras de negócio. No FiapRide, por exemplo, um saldo negativo poderia causar prejuízos ou inconsistências no sistema. Centralizar essa lógica em um método também facilita futuras mudanças, como adicionar validações, limites ou registro de transações sem precisar alterar várias partes do código.
 
 ---
 
@@ -62,7 +60,7 @@ Criar um método como adicionarSaldo(valor) é importante porque ele garante mai
 
 **Sua Resposta:**
 
-Encapsulamento protege os dados da classe ao manter os atributos como private, evitando que sejam acessados diretamente. Os métodos get podem ser públicos porque apenas permitem visualizar os valores, sem dar a possibilidade de alteração. Dessa forma, a informação continua segura, já que ninguém consegue modificá-la sem passar por regras da própria classe. Já deixar os atributos públicos é perigoso, pois qualquer parte do código pode alterar os valores livremente, sem controle. É como entregar uma cópia de um documento para alguém ver, em vez do original que pode ser modificado.
+Encapsulamento protege os dados da classe ao manter os atributos como private, evitando acesso direto. Os métodos get podem ser públicos porque apenas permitem visualizar as informações, sem modificar os valores originais. Já deixar os atributos públicos seria perigoso, porque qualquer parte do sistema poderia alterar os dados livremente, sem validação ou controle. Durante o desenvolvimento percebi que isso é muito importante para evitar inconsistências e proteger a lógica do sistema. É como entregar uma cópia de um documento para alguém visualizar, em vez do documento original que pode ser alterado ou rasurado.
 
 ---
 
@@ -80,7 +78,8 @@ Pensando no mundo real e no Clean Code: Por que é um erro gravíssimo clicar em
 
 **Sua Resposta:**
 
-Gerar getters e setters para tudo sem pensar é errado porque você perde o controle sobre o que pode ou não ser alterado no sistema. Nem todos os dados devem ser modificados livremente, como o modelo de um carro, que não muda na vida real. Já a placa pode mudar, mas isso exige um processo com regras, não apenas trocar um valor direto. Ao deixar o `setPlaca()` privado e criar um método como `atualizarPlaca()`, garantimos que essa mudança siga uma lógica correta. Assim, o sistema fica mais seguro e evita alterações inválidas ou inconsistentes.
+Gerar getters e setters automaticamente para tudo é perigoso porque o sistema perde controle sobre os dados importantes. Nem toda informação deve poder ser alterada livremente. No caso do veículo, o modelo praticamente nunca muda no mundo real, então não faz sentido existir um setModelo(). Já a placa pode até mudar, mas isso exige um processo com validações, parecido com o que acontece no Detran. Por isso, usar atualizarPlaca() é mais seguro do que deixar um setter público simples. Durante as aulas percebi que Clean Code não é criar métodos para tudo automaticamente, mas pensar nas regras reais do sistema e proteger a lógica da aplicação.
+
 
 
 ---
@@ -104,7 +103,8 @@ Não é melhor usar só a String do nome, porque ela guarda apenas o texto e nã
 Por que o Java não deixa a filha alterar as variáveis privadas da mãe diretamente? Qual o princípio das aulas passadas que isso está protegendo?
 
 **Sua Resposta:**
-[Escreva sua reflexão aqui]
+
+O Java não permite que a filha altere diretamente os atributos privados da mãe porque isso quebraria o encapsulamento, que aprendemos nas aulas anteriores. Mesmo que Carro herde de Veiculo, alguns dados precisam continuar protegidos para evitar alterações indevidas. Ao obrigar o uso de métodos como super() ou setPlaca(), o sistema mantém regras e validações centralizadas. Isso garante mais segurança e organização no código. Durante o projeto, percebi que herança não significa acesso total aos dados da classe mãe, mas sim reaproveitamento controlado da estrutura e dos comportamentos.
 
 ---
 
@@ -113,7 +113,8 @@ Por que o Java não deixa a filha alterar as variáveis privadas da mãe diretam
 **Pergunta:** No nosso loop `for (Veiculo veiculo : frota)`, a variável `veiculo` é do tipo genérico `Veiculo`. Se esquecêssemos de criar o método `calcularAutonomia()` lá na classe mãe `Veiculo`, nós conseguiríamos chamá-lo dentro do loop, mesmo sabendo que ele existe dentro do `Carro` e da `Moto`? Por que o contrato precisa existir na base da hierarquia?
 
 **Sua Resposta:**
-[Escreva sua reflexão aqui]
+
+Não conseguiríamos chamar calcularAutonomia() dentro do loop se o método não existisse na classe mãe Veiculo. Mesmo que Carro e Moto tenham esse método, o Java olha para o tipo da variável do loop, que é Veiculo. Por isso, o contrato precisa existir na base da hierarquia, garantindo que todos os veículos tenham esse comportamento. Foi nessa aula que entendi melhor o polimorfismo, porque percebi que o sistema consegue tratar objetos diferentes de forma genérica, desde que todos sigam o mesmo contrato definido na classe mãe.
 
 ---
 
@@ -126,7 +127,8 @@ Por que, então, no código, precisamos EXPLICITAMENTE dizer ao Java que `Veicul
 Pense: Se esquecermos de colocar `abstract`, qual o risco que corremos? Alguém pode criar `new Veiculo()` e quebrar a lógica do nosso sistema?
 
 **Sua Resposta:**
-[Escreva sua reflexão aqui]
+
+No mundo real, não faz muito sentido existir apenas um “Dispositivo” genérico. Sempre teremos um tipo específico, como notebook ou celular. Por isso, no meu projeto, transformei Dispositivo em uma classe abstrata, servindo apenas como um molde para as subclasses. O Java não deduz isso sozinho porque ele não entende a lógica do negócio, apenas executa o que o programador define. Se esquecermos de colocar abstract, qualquer pessoa poderia criar new Dispositivo(), mesmo sem existir um dispositivo genérico de verdade. Isso poderia gerar inconsistências no sistema e quebrar a lógica da aplicação.
 
 ---
 
@@ -139,7 +141,8 @@ Pense: Se `CarroEletrico` pudesse herdar de `Veiculo` E de `Bateria` ao mesmo te
 Como as interfaces resolvem esse problema?
 
 **Sua Resposta:**
-[Escreva sua reflexão aqui]
+
+Java permite apenas uma herança porque duas classes mães poderiam gerar conflitos no sistema. Se CarroEletrico herdasse de Veiculo e Bateria ao mesmo tempo, e ambas tivessem um método chamado ligar(), o Java não saberia qual implementação usar. Isso deixaria o código confuso e difícil de manter. As interfaces resolvem esse problema porque funcionam apenas como contratos de comportamento, definindo o que a classe deve fazer, mas sem implementar lógica diretamente. No meu projeto, Notebook e Celular implementam a interface Recarregavel mesmo sendo dispositivos diferentes. Assim, ambos podem ser tratados como Recarregavel sem precisar compartilhar a mesma hierarquia de herança. Durante a atividade percebi que interfaces dão mais flexibilidade ao sistema sem criar conflitos de implementação.
 
 ---
 
@@ -148,23 +151,29 @@ Como as interfaces resolvem esse problema?
 ### Desafio Pessoal (Seu Projeto)
 
 **Qual foi o domínio que você escolheu para seu projeto pessoal?**
-[Responda aqui: ex: Sistema de Biblioteca, Playlist de Música, PetShop, etc.]
+
+Escolhi desenvolver um sistema de gerenciamento de dispositivos eletrônicos, trabalhando com notebooks e celulares para simular controle de desempenho, uso e recarga dos dispositivos.
 
 **Quais classes você criou?**
-[Liste suas classes: ex: Livro, Usuario, Emprestimo]
+
+Criei as classes Dispositivo, Notebook, Celular, UsoDispositivo e a interface Recarregavel.
 
 **Qual foi o maior desafio técnico que você enfrentou?**
-[Descreva o desafio e como você o resolveu - 10-15 linhas]
+
+O maior desafio foi entender como aplicar corretamente herança, polimorfismo, classes abstratas e interfaces dentro do mesmo projeto. No começo eu tinha dificuldade para decidir o que deveria ficar na classe mãe e o que deveria ficar apenas nas subclasses. Também foi desafiador compreender por que usar métodos abstratos e interfaces em vez de colocar tudo diretamente nas classes concretas. Conforme fui evoluindo no projeto, percebi que a organização do código faz muita diferença na manutenção e na reutilização das funcionalidades. Outro ponto importante foi entender o polimorfismo, principalmente quando utilizei arrays de Dispositivo e Recarregavel para tratar objetos diferentes de forma genérica. Isso me ajudou a enxergar melhor como orientação a objetos funciona na prática. Além disso, tive que tomar cuidado com encapsulamento para proteger os atributos e evitar alterações indevidas no sistema.
 
 ---
 
 ## Conclusão
 
 **O que você aprendeu nestas 9 aulas?**
-[Reflexão final - conte sobre sua jornada de aprendizado]
+
+Durante essas 9 aulas aprendi os principais fundamentos da programação orientada a objetos, como classes, objetos, métodos, encapsulamento, construtores, associação, herança, polimorfismo, classes abstratas e interfaces. No começo eu enxergava as classes apenas como uma forma de organizar código, mas durante o desenvolvimento do projeto percebi que elas representam entidades reais do sistema e ajudam a proteger as regras de negócio. Também aprendi a importância de pensar na arquitetura antes de simplesmente criar getters e setters para tudo. Conforme o projeto evoluiu, consegui entender melhor como cada conceito se conecta e como eles tornam o sistema mais organizado, reutilizável e fácil de manter.
 
 **Qual conceito foi mais difícil de entender?**
-[Qual conceito e como você superou a dificuldade?]
+
+O conceito mais difícil para mim foi polimorfismo, porque no começo era estranho entender como objetos diferentes poderiam ser tratados pelo mesmo tipo genérico. Só consegui compreender melhor quando apliquei isso no meu próprio projeto usando arrays de Dispositivo e Recarregavel. Depois que vi funcionando na prática, ficou mais fácil entender como o Java escolhe automaticamente o comportamento correto de cada objeto.
 
 **O que você melhoraria no seu projeto se pudesse refazer?**
-[Reflexão crítica sobre seu próprio código]
+
+Se pudesse refazer o projeto, eu melhoraria principalmente a organização das responsabilidades das classes. Agora consigo perceber que algumas validações e comportamentos poderiam estar mais separados para deixar o sistema ainda mais limpo e escalável. Também adicionaria mais tipos de dispositivos e mais interfaces para praticar melhor múltiplos contratos de comportamento. Além disso, tentaria deixar o código mais flexível para futuras expansões, aplicando ainda mais os princípios de orientação a objetos e Clean Code.
