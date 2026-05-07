@@ -3,6 +3,7 @@ package br.com.fiapride.main;
 import br.com.fiapride.model.Celular;
 import br.com.fiapride.model.Dispositivo;
 import br.com.fiapride.model.Notebook;
+import br.com.fiapride.model.Recarregavel;
 import br.com.fiapride.model.UsoDispositivo;
 
 public class SistemaPrincipal {
@@ -57,6 +58,22 @@ public class SistemaPrincipal {
 
             System.out.println(
                     d.calcularDesempenho());
+
+            System.out.println(
+                    "-----------------------");
+        }
+
+        System.out.println(
+                "\n===== TESTE INTERFACE =====");
+
+        Recarregavel[] recarregaveis = {
+                notebook,
+                celular
+        };
+
+        for (Recarregavel r : recarregaveis) {
+
+            r.recarregar(85);
 
             System.out.println(
                     "-----------------------");
